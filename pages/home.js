@@ -1,19 +1,64 @@
 import Link from "next/link";
-import React from "react";
 import homeStyle from "../styles/pages/home.module.css";
 import Image from "next/image";
+import { FiSearch } from "react-icons/fi";
+import Slider from "react-slick";
+import React, { useState } from "react";
+import axios from "axios";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useRouter } from "next/router";
 
-function Home() {
+export default function Home() {
+  const [nav2, setNav2] = useState();
+  const [newRecipe, setNewRecipe] = useState([]);
+  const [allRecipe, setAllRecipe] = useState([]);
+  const [search, setSearch] = React.useState(null);
+  const router = useRouter();
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearch(event.target[0].value);
+  };
+
+  React.useEffect(() => {
+    if (search !== null) {
+      router.push(`/search/${search}`);
+    }
+  });
+
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:8001/recipe/get5data")
+      .then((res) => {
+        setNewRecipe(res?.data);
+      })
+      .catch((error) => {
+        console.log(error?.response?.data);
+      });
+  }, []);
+
+  React.useEffect(() => {
+    axios
+      .get("http://localhost:8001/recipe")
+      .then((res) => {
+        setAllRecipe(res?.data?.recipe.slice(0, 6));
+      })
+      .catch((error) => {
+        console.log(error?.response?.data);
+      });
+  }, []);
+
   return (
     <>
       <div className={homeStyle.home}>
         <div className="container-fluid ">
-          <div className="row justify-content-center ">
+          <div>
             {/* navbar */}
             <div>
               <nav className="navbar fixed-bottom bg-light">
-                <div className="container-fluid">
-                  <Link href="/register" passHref>
+                <div className={`${homeStyle.navbar} container-fluid `}>
+                  <Link href="/home" passHref>
                     <a>
                       <Image
                         src="/images/homebutton.png"
@@ -23,7 +68,7 @@ function Home() {
                       />
                     </a>
                   </Link>
-                  <Link href="/register" passHref>
+                  <Link href="/addRecipe" passHref>
                     <a>
                       <Image
                         src="/images/addbutton.png"
@@ -33,7 +78,7 @@ function Home() {
                       />
                     </a>
                   </Link>
-                  <Link href="/register" passHref>
+                  <Link href="/massage" passHref>
                     <a>
                       <Image
                         src="/images/messagebutton.png"
@@ -43,7 +88,7 @@ function Home() {
                       />
                     </a>
                   </Link>
-                  <Link href="/register" passHref>
+                  <Link href="/profile" passHref>
                     <a>
                       <Image
                         src="/images/userbutton.png"
@@ -57,92 +102,120 @@ function Home() {
               </nav>
             </div>
             {/* search box */}
-            <div className="col-11 mt-5 ">
-              <input
-                type="text"
-                className="form-control mb-5 form-control-lg bg-light"
-                id="exampleFormControlInput2"
-                placeholder="Search Pasta, Bread, etc"
-              ></input>
-              <h3 className="mb-4">New Recipes</h3>
-              <div className="col-5">
-                <div className="card mb-5">
-                  <Image
-                    src="/images/vegetables.png"
-                    className="card-img-bottom"
-                    alt="test"
-                    width="330px"
-                    height="330px"
+            <div className="mt-5 ">
+              <div className="mb-5">
+                <form className="input-group mb-3" onSubmit={handleSearch}>
+                  <span
+                    className={`${homeStyle.icon} input-group-text bg-light`}
+                    id="basic-addon1"
+                  >
+                    <FiSearch />
+                  </span>
+                  <input
+                    type="text"
+                    className={`${homeStyle.form} form-control bg-light`}
+                    placeholder="Search Pasta, Bread, etc"
+                    required
                   />
-                  <div className="card-body text-warning ">
-                    <p className="card-text">title</p>
-                  </div>
-                </div>
+                </form>
               </div>
-              <h3 className="mb-4">Popular Recipes</h3>
-              <div className="row">
-                <div className="col-3">
-                  <div className="card mb-3">
-                    <Image
-                      src="/images/vegetables.png"
-                      className="card-img-bottom"
-                      alt="test"
-                      width="64px"
-                      height="64px"
-                    />
-                  </div>
+              {/* new recipe */}
+              <section>
+                <div className="mb-5">
+                  <h3 className="mb-4">New Recipes</h3>
+                  <Slider
+                    asNavFor={nav2}
+                    ref={(slider2) => setNav2(slider2)}
+                    slidesToShow={3}
+                    swipeToSlide={true}
+                    focusOnSelect={true}
+                  >
+                    {newRecipe.map((item, key) => (
+                      <div key={key}>
+                        <div
+                          className={`${homeStyle.newRecipe} card text-bg-light`}
+                        >
+                          <Image
+                            src={item?.image}
+                            className={`${homeStyle.newRecipe} card-img`}
+                            alt="image"
+                            layout="fill"
+                            objectFit="cover"
+                          />
+                          <div
+                            className={`${homeStyle.cardOverlay} card-img-overlay`}
+                          >
+                            <h5 className="card-title">{item?.title_recipe}</h5>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </Slider>
                 </div>
-                <div className="col-6">
-                  <div className="card">
-                    <div className="card-body" height="64px">
-                      <h4>Title</h4>
-                      <p>Descripsi</p>
-                    </div>
-                  </div>
+              </section>
+              {/* Popular Recipe */}
+              <section>
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <h3>Popular Recipes</h3>
+
+                  <Link href="/popularMenu" passHref>
+                    <a style={{ textDecoration: "none", color: "#6D61F2" }}>
+                      More info
+                    </a>
+                  </Link>
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-3">
-                  <div className="card mb-3">
-                    <Image
-                      src="/images/vegetables.png"
-                      className="card-img-bottom"
-                      alt="test"
-                      width="64px"
-                      height="64px"
-                    />
+                {allRecipe.map((item, key) => (
+                  <div key={key}>
+                    <Link
+                      href={`/detailRecipe/${encodeURIComponent(item.id)}`}
+                      passHref
+                    >
+                      <div
+                        className="card"
+                        style={{
+                          borderRadius: "15px",
+                          padding: "10px",
+                          border: "none",
+                          "box-shadow": "2px 2px 5px 1px rgba(0,0,0,0.12)",
+                          marginBottom: "20px",
+                          cursor: "pointer",
+                        }}
+                      >
+                        <div className="row">
+                          <div className="col-2">
+                            <div className={homeStyle.popularRecipe}>
+                              <Image
+                                src={item?.image}
+                                width="80px"
+                                height="80px"
+                                objectFit="cover"
+                                style={{
+                                  borderRadius: "15px",
+                                }}
+                                alt="image"
+                              />
+                            </div>
+                          </div>
+                          <div className="col-10">
+                            <div style={{ marginLeft: "50px" }}>
+                              <h6>{item?.title_recipe}</h6>
+                              <p>{item?.description}</p>
+                              <div className="d-flex gap-1 align-items-center">
+                                <img
+                                  src="/images/star.png"
+                                  alt="star"
+                                  height="12px"
+                                />
+                                <span>4.7</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
-                </div>
-                <div className="col-6">
-                  <div className="card">
-                    <div className="card-body" height="64px">
-                      <h4>Title</h4>
-                      <p>Descripsi</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-3">
-                  <div className="card mb-3">
-                    <Image
-                      src="/images/vegetables.png"
-                      className="card-img-bottom"
-                      alt="test"
-                      width="64px"
-                      height="64px"
-                    />
-                  </div>
-                </div>
-                <div className="col-6">
-                  <div className="card">
-                    <div className="card-body" height="64px">
-                      <h4>Title</h4>
-                      <p>Descripsi</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                ))}
+              </section>
             </div>
           </div>
         </div>
@@ -150,5 +223,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;
