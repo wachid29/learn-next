@@ -10,15 +10,15 @@
 }
 
 .titleRecipe{
-    padding-left: 30px;
+    padding-left: 20px;
 }
 
 .titleRecipe h2{
     padding-top: 20px;
-    width: 200px;
+    width: 155px;
     height: 84px;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 30px;
     color: #FBFBFB;
     text-shadow: -1px -1px 8px rgba(0, 0, 0, 0.29);
 }

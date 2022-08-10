@@ -1,6 +1,6 @@
 .page{
     background-color:#E5E5E5;
-    height: 100vh;
+    height: 110vh;
 }
 
 .title{
@@ -41,7 +41,6 @@
     border-radius: 15px;
     margin-right: 5vw;
     margin-left: 5vw;
-  
 }
 
 .button{

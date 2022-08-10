@@ -83,40 +83,47 @@ function Search() {
             </div>
           ) : null}
           {listSearch.map((item, key) => (
-            <div
-              className="card"
-              style={{
-                borderRadius: "15px",
-                padding: "10px",
-                border: "none",
-                "box-shadow": "2px 2px 5px 1px rgba(0,0,0,0.12)",
-                marginBottom: "20px",
-                cursor: "pointer",
-              }}
-              key={key}
-            >
-              <div className="row">
-                <div className="col-2">
-                  <div className={searchStyle.popularRecipe}>
-                    <Image
-                      src={item?.image}
-                      width="80px"
-                      height="80px"
-                      objectFit="cover"
-                      style={{
-                        borderRadius: "15px",
-                      }}
-                      alt="image"
-                    />
+            <div key={key}>
+              <Link
+                href={`/detailRecipe/${encodeURIComponent(item.id)}`}
+                passHref
+              >
+                <div
+                  className="card"
+                  style={{
+                    borderRadius: "15px",
+                    padding: "10px",
+                    border: "none",
+                    "box-shadow": "2px 2px 5px 1px rgba(0,0,0,0.12)",
+                    marginBottom: "20px",
+                    cursor: "pointer",
+                  }}
+                  key={key}
+                >
+                  <div className="row">
+                    <div className="col-2">
+                      <div className={searchStyle.popularRecipe}>
+                        <Image
+                          src={item?.image}
+                          width="80px"
+                          height="80px"
+                          objectFit="cover"
+                          style={{
+                            borderRadius: "15px",
+                          }}
+                          alt="image"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-7 d-flex align-items-center">
+                      <div style={{ marginLeft: "50px" }}>
+                        <h6>{item?.title_recipe}</h6>
+                        <p>{item?.description}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="col-7 d-flex align-items-center">
-                  <div style={{ marginLeft: "50px" }}>
-                    <h6>{item?.title_recipe}</h6>
-                    <p>{item?.description}</p>
-                  </div>
-                </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

@@ -60,8 +60,8 @@ font-style: normal;
 
 /* new recipe */
 .newRecipe{
-    width: 120px;
-    height: 150px;
+    width: 28vw;
+    height: 35vw;
     box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.12);
     border-radius: 15px;
    

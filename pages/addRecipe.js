@@ -165,21 +165,29 @@ function AddRecipe() {
                 onChange={(e) => setVidio_step(e.target.value)}
               />
             </div>
-            <div className="d-grid gap-2 fixed-bottom mb-5">
-              <label className="btn btn-default">
-                Photo Library{" "}
-                <input type="file" hidden onChange={handleUpload} />
-              </label>
-              <label className="btn btn-default mb-5">Take Photo</label>
-            </div>
-            <div className={addRecipeStyle.button}>
+            <div
+              className={addRecipeStyle.button}
+              style={{ marginBottom: "10vh" }}
+            >
               <label
-                className="btn btn-default "
+                className="btn btn-default mb-5"
                 disabled={isLoading}
                 onClick={handleAddRecipe}
               >
                 {isLoading ? "Loading..." : "POST"}
               </label>
+            </div>
+            <div className=" d-flex align-items-flexEnd justify-content-center">
+              <div
+                className="d-grid gap-2 mt-1 w-100"
+                style={{ position: "absolute" }}
+              >
+                <label className="btn btn-default ">
+                  Photo Library
+                  <input type="file" hidden onChange={handleUpload} />
+                </label>
+                <label className="btn btn-default ">Take Photo</label>
+              </div>
             </div>
           </div>
         </div>

@@ -132,22 +132,29 @@ export default function Home() {
                   >
                     {newRecipe.map((item, key) => (
                       <div key={key}>
-                        <div
-                          className={`${homeStyle.newRecipe} card text-bg-light`}
+                        <Link
+                          href={`/detailRecipe/${encodeURIComponent(item.id)}`}
+                          passHref
                         >
-                          <Image
-                            src={item?.image}
-                            className={`${homeStyle.newRecipe} card-img`}
-                            alt="image"
-                            layout="fill"
-                            objectFit="cover"
-                          />
                           <div
-                            className={`${homeStyle.cardOverlay} card-img-overlay`}
+                            className={`${homeStyle.newRecipe} card text-bg-light`}
                           >
-                            <h5 className="card-title">{item?.title_recipe}</h5>
+                            <Image
+                              src={item?.image}
+                              className={`${homeStyle.newRecipe} card-img`}
+                              alt="image"
+                              layout="fill"
+                              objectFit="cover"
+                            />
+                            <div
+                              className={`${homeStyle.cardOverlay} card-img-overlay`}
+                            >
+                              <h5 className="card-title">
+                                {item?.title_recipe}
+                              </h5>
+                            </div>
                           </div>
-                        </div>
+                        </Link>
                       </div>
                     ))}
                   </Slider>
