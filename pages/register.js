@@ -1,5 +1,5 @@
 import React from "react";
-import RegisterStyle from "../styles/pages/register.module.css";
+import RegisterStyle from "../styles/register.module.css";
 import Link from "next/link";
 import { FiUser, FiMail, FiPhone } from "react-icons/fi";
 import { BiLockAlt, BiLockOpenAlt } from "react-icons/bi";

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import likedRecipeStyle from "../styles/pages/likedRecipe.module.css";
+import likedRecipeStyle from "../styles/likedRecipe.module.css";
 import Link from "next/link";
 Link;
 

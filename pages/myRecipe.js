@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import myRecipeStyle from "../styles/pages/myRecipe.module.css";
+import myRecipeStyle from "../styles/myRecipe.module.css";
 import Link from "next/link";
 import { ProfileContext } from "../contex";
 import axios from "axios";

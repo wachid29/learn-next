@@ -1,5 +1,5 @@
 import React from "react";
-import loginStyle from "../styles/pages/login.module.css";
+import loginStyle from "../styles/login.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { FiUser } from "react-icons/fi";

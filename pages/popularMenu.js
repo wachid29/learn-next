@@ -1,4 +1,4 @@
-import popularStyle from "../styles/pages/popularMenu.module.css";
+import popularStyle from "../styles/popularMenu.module.css";
 import Image from "next/image";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
