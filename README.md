@@ -177,7 +177,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Related Project
 
-:rocket: [`Backend Mama Recipe`](https://github.com/wachid29/learn-next)
+:rocket: [`Backend Mama Recipe`](https://github.com/wachid29/recipe_mobile)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
