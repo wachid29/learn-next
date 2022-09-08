@@ -25,18 +25,6 @@
         color: #C4C4C4;
 }
 
-.icon{
-    position:relative;
-    margin-bottom: -50px;
-  
-}
-
-.form{
-    position: static;
-    padding-left: 25px;
-    padding-top: 10px;
-}
-
 .buttonText{
 font-style: normal;
     font-weight: 500;
@@ -53,4 +41,20 @@ font-style: normal;
         /* identical to box height */
         text-decoration: none;
         color: #EFC81A;
+}
+
+/* css form */
+.icon {
+    position: relative;
+    background-color: transparent;
+    border-right: none;
+   
+    margin-right: -10px;
+}
+
+.form {
+    background-color: transparent;
+    border-left: none;
+   
+
 }
