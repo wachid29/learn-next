@@ -40,7 +40,7 @@ function AddRecipe() {
       bodyFormData.append("user_id", UserConsumer.id);
       axios({
         method: "post",
-        url: "http://localhost:8001/recipe/add",
+        url: `${process.env.NEXT_PUBLIC_API}/recipe/add`,
         data: bodyFormData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -51,7 +51,7 @@ function AddRecipe() {
           setisSucces(true);
 
           setSuccesMsg(res?.data);
-          router.push(`/home`);
+          router.push(`/`);
         })
         .catch((error) => {
           setIsLoading(false);
@@ -71,7 +71,7 @@ function AddRecipe() {
           <div>
             <nav className="navbar fixed-bottom bg-light">
               <div className={`${addRecipeStyle.navbar} container-fluid `}>
-                <Link href="/home" passHref>
+                <Link href="/" passHref>
                   <a>
                     <Image
                       src="/images/homebutton.png"

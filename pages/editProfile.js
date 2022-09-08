@@ -32,7 +32,7 @@ function EditProfile() {
       bodyFormData.append("profile", image);
       axios({
         method: "patch",
-        url: "http://localhost:8001/userdata/editPhoto",
+        url: `${process.env.NEXT_PUBLIC_API}/userdata/editPhoto`,
         data: bodyFormData,
         headers: {
           "Content-Type": "multipart/form-data",

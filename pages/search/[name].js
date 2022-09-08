@@ -11,6 +11,7 @@ function Search() {
   const [isError, setIsError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [search, setSearch] = React.useState(null);
+  const [filter, setFilter] = useState("DESC");
   const router = useRouter();
   const { query } = useRouter();
 
@@ -18,6 +19,10 @@ function Search() {
     event.preventDefault();
     setSearch(event.target[0].value);
   };
+
+  function handleAddrTypeChange(e) {
+    setFilter(e.target.value);
+  }
 
   React.useEffect(() => {
     if (search !== null) {
@@ -28,7 +33,9 @@ function Search() {
   React.useEffect(() => {
     if (query?.name) {
       axios
-        .get(`http://localhost:8001/recipe/find?title_recipe=${query.name}`)
+        .get(
+          `${process.env.NEXT_PUBLIC_API}/recipe/find?title_recipe=${query.name}&filter=${filter}`
+        )
         .then((res) => {
           setIsError(false);
           setListSearch(res.data.recipe);
@@ -38,7 +45,7 @@ function Search() {
           setErrorMsg(error?.response?.data);
         });
     }
-  }, [query]);
+  }, [listSearch, query]);
   return (
     <>
       <div className="container mt-4">
@@ -47,7 +54,7 @@ function Search() {
             className="d-flex align-content-center mb-4"
             style={{ justifyContent: "space-between" }}
           >
-            <Link href="/home" passHref>
+            <Link href="/" passHref>
               <a>
                 <button type="button" className="btn btn-light">
                   <Image
@@ -70,12 +77,28 @@ function Search() {
                 <input
                   type="text"
                   className={`${searchStyle.form} form-control form-control-lg bg-light `}
-                  placeholder="Search Pasta, Bread, etc"
+                  placeholder="Search Recipe"
                   required
                 />
               </form>
             </div>
             <div></div>
+          </div>
+          <div className="d-flex justify-content-start mb-2">
+            <span>
+              <h5>Sort By:</h5>
+            </span>
+            <select
+              defaultValue={filter}
+              onChange={handleAddrTypeChange}
+              className="Default select example "
+              style={{ borderRadius: "10px", marginLeft: "5px" }}
+            >
+              <option selected value="DESC">
+                Newest
+              </option>
+              <option value="ASC">Latest</option>
+            </select>
           </div>
           {isError ? (
             <div className="alert alert-danger" role="alert">
@@ -94,7 +117,7 @@ function Search() {
                     borderRadius: "15px",
                     padding: "10px",
                     border: "none",
-                    "box-shadow": "2px 2px 5px 1px rgba(0,0,0,0.12)",
+                    boxShadow: "2px 2px 5px 1px rgba(0,0,0,0.12)",
                     marginBottom: "20px",
                     cursor: "pointer",
                   }}

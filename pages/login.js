@@ -17,7 +17,7 @@ function Login() {
   const handlelogin = () => {
     setIsLoading(true);
     axios
-      .post("http://localhost:8001/login", {
+      .post(`${process.env.NEXT_PUBLIC_API}/login`, {
         email: email,
         password: password,
       })
@@ -25,7 +25,7 @@ function Login() {
         setIsError(false);
         localStorage.setItem("token", res?.data?.token);
         localStorage.setItem("user", JSON.stringify(res?.data?.user));
-        router.push("/home");
+        router.push("/");
       })
       .catch((error) => {
         setIsLoading(false);

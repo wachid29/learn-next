@@ -11,9 +11,9 @@ function MyRecipe() {
 
   React.useEffect(() => {
     axios
-      .get(`http://localhost:8001/recipebyuser?id=${UserConsumer.id}`)
+      .get(`${process.env.NEXT_PUBLIC_API}/recipebyuser?id=${UserConsumer.id}`)
       .then((res) => {
-        setRecipe(res.data.recipe);
+        setRecipe(res?.data?.recipe);
       })
       .catch((error) => {
         console.log("err", error);
@@ -28,7 +28,7 @@ function MyRecipe() {
             className="d-flex align-content-center mb-4"
             style={{ justifyContent: "space-between" }}
           >
-            <Link href="/home" passHref>
+            <Link href="/" passHref>
               <a>
                 <button type="button" className="btn btn-light">
                   <Image
@@ -55,9 +55,7 @@ function MyRecipe() {
                     borderRadius: "15px",
                     padding: "10px",
                     border: "none",
-                    "box-shadow": "2px 2px 5px 1px rgba(0,0,0,0.12)",
-                    "-webkit-box-shadow": "2px 2px 5px 1px rgba(0,0,0,0.12)",
-                    "-moz-box-shadow": "2px 2px 5px 1px rgba(0,0,0,0.12)",
+                    boxShadow: "2px 2px 5px 1px rgba(0,0,0,0.12)",
                     marginBottom: "20px",
                     cursor: "pointer",
                   }}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import detailRecipeStyle from "../../styles/pages/detailRecipe.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,10 +19,12 @@ function DetailRecipe() {
   const router = useRouter();
   const { query } = useRouter();
 
+  let formRef = useRef();
+
   React.useEffect(() => {
     if (query.id) {
       axios
-        .get(`http://localhost:8001/commentbyrecipe?id=${query.id}`)
+        .get(`${process.env.NEXT_PUBLIC_API}/commentbyrecipe?id=${query.id}`)
         .then((res) => {
           setdetailRecipe(res.data.recipe);
           setcomment(res.data.comment);
@@ -33,7 +35,7 @@ function DetailRecipe() {
   const handleComment = () => {
     setIsLoading(true);
     axios
-      .post("http://localhost:8001/comment/add", {
+      .post(`${process.env.NEXT_PUBLIC_API}/comment/add`, {
         comment: addComment,
         user_id: UserConsumer.id,
         recipe_id: query.id,
@@ -65,7 +67,7 @@ function DetailRecipe() {
               }}
             >
               <div className={`${detailRecipeStyle.titleRecipe}`}>
-                <Link href="/home" passHref>
+                <Link href="/" passHref>
                   <a>
                     <button
                       type="button"
@@ -121,6 +123,7 @@ function DetailRecipe() {
                   <div
                     className={detailRecipeStyle.commentForm}
                     onSubmit={(e) => e.preventDefault()}
+                    ref={{ formRef }}
                   >
                     {isError ? (
                       <div className="alert alert-danger" role="alert">

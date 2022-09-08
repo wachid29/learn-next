@@ -21,7 +21,7 @@ function Register() {
   const handleRegister = () => {
     setIsLoading(true);
     axios
-      .post("http://localhost:8001/userdata/add", {
+      .post(`${process.env.NEXT_PUBLIC_API}/userdata/add`, {
         name: name,
         email: email,
         phone_number: phone_number,

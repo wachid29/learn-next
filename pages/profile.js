@@ -16,14 +16,16 @@ function Profile() {
   React.useEffect(() => {
     localStorage;
     axios
-      .get(`http://localhost:8001/userdata/findbyID/?id=${UserConsumer.id}`)
+      .get(
+        `${process.env.NEXT_PUBLIC_API}/userdata/findbyID/?id=${UserConsumer.id}`
+      )
       .then((res) => {
-        setUser(res.data.user);
+        setUser(res?.data?.user);
       })
       .catch((error) => {
         console.log("err", error);
       });
-  }, []);
+  }, [user]);
 
   return (
     <>
@@ -34,7 +36,7 @@ function Profile() {
             <div>
               <nav className="navbar fixed-bottom bg-light">
                 <div className={`${profileStyle.navbar} container-fluid `}>
-                  <Link href="/home" passHref>
+                  <Link href="/" passHref>
                     <a>
                       <Image
                         src="/images/homebutton.png"
