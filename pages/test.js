@@ -4,8 +4,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function SyncSlider() {
-  const [nav1, setNav1] = useState();
-  const [nav2, setNav2] = useState();
+  const [filter, setFilter] = useState("DESC");
 
-  return <div></div>;
+  function handleAddrTypeChange(e) {
+    setFilter(e.target.value);
+  }
+  return (
+    <select
+      defaultValue={filter}
+      onChange={handleAddrTypeChange}
+      className="browser-default custom-select"
+    >
+      <option selected value="DESC">
+        DESC
+      </option>
+      <option value="ASC">ASC</option>
+    </select>
+  );
 }
