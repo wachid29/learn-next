@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import homeStyle from "../styles/home.module.css";
+import homeStyle from "../styles/home.module.css";
 import Image from "next/image";
 import { FiSearch } from "react-icons/fi";
 import Slider from "react-slick";
@@ -8,7 +8,7 @@ import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
-let homeStyle = {};
+// let homeStyle = {};
 
 export default function Home() {
   const [nav2, setNav2] = useState();
