@@ -1,0 +1,94 @@
+.home{
+    background: white;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        overflow-y:visible;
+        
+}
+
+.home h4{
+font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+   
+    color: #18172B;
+    margin-top: -10px;
+    margin-bottom: 5px;
+
+}
+
+.home p{
+    font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        
+        color: #6E80B0;
+        margin-bottom: 0px;
+}
+
+.navbar{
+    padding-left: 35px;
+    padding-right: 35px ;
+}
+
+/* css search bar */
+.icon{
+    position: relative;
+    background-color: transparent;
+    border-right: none;
+    border-radius: 15px;
+    margin-right: -10px;
+}
+
+.form {
+    background-color: transparent;
+    border-left: none;
+    border-radius: 15px;
+    
+}
+
+.card{
+    display: flex;
+    gap: 20px;
+    overflow-x:hidden;
+    width:  80vw;
+    margin-top: 20px
+}
+
+/* new recipe */
+.newRecipe{
+    width: 28vw;
+    height: 35vw;
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.12);
+    border-radius: 15px;
+   
+}
+
+.cardOverlay{
+    display: flex;
+    align-items:flex-end;
+   
+}
+
+.cardOverlay h5{
+    font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        color: #FBFBFB;
+        text-shadow: 1px -1px 7px rgba(0,0,0,1);
+
+}
+
+/* popular recipe */
+.popularRecipe{
+    border-color: black;
+    border-style: solid;
+    border-width: 0.5px;
+    height: 80px;
+    width: 80px;
+    border-radius: 15px;
+}

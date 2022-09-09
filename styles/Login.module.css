@@ -1,0 +1,60 @@
+
+.Login{
+    background-color:white;
+    display: flex;
+    align-content: center;
+    height: 120vh !important;
+}
+
+
+.title{
+    font-weight: 500;
+        font-size: 18px;
+        line-height: 23px;
+    
+        color: #EFC81A;
+}
+
+.description{
+    font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        /* identical to box height */
+    
+        color: #C4C4C4;
+}
+
+.buttonText{
+font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    padding-top: 10px;
+    color: #FFFFFF;
+}
+
+.textLink{
+    font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        /* identical to box height */
+        text-decoration: none;
+        color: #EFC81A;
+}
+
+/* css form */
+.icon {
+    position: relative;
+    background-color: transparent;
+    border-right: none;
+   
+    margin-right: -10px;
+}
+
+.form {
+    background-color: transparent;
+    border-left: none;
+   
+
+}
