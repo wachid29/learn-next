@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import profileStyle from "../styles/profile.module.css";
+import profileStyle from "../styles/Profile.module.css";
 import { MdArrowForwardIos } from "react-icons/md";
 import { FiAward, FiBookmark, FiUser } from "react-icons/fi";
 import { BiLike } from "react-icons/bi";

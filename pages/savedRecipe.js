@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import savedRecipeStyle from "../styles/savedRecipe.module.css";
+import savedRecipeStyle from "../styles/SavedRecipe.module.css";
 import Link from "next/link";
 
 function SavedRecipe() {

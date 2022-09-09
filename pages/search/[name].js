@@ -1,4 +1,4 @@
-import searchStyle from "../../styles/search.module.css";
+import searchStyle from "../../styles/Search.module.css";
 import Image from "next/image";
 import axios from "axios";
 import React, { useState } from "react";

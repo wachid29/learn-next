@@ -1,5 +1,5 @@
 import Link from "next/link";
-import homeStyle from "../styles/home.module.css";
+import homeStyle from "../styles/Home.module.css";
 import Image from "next/image";
 import { FiSearch } from "react-icons/fi";
 import Slider from "react-slick";

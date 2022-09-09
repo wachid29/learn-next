@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import detailRecipeStyle from "../../styles/detailRecipe.module.css";
+import detailRecipeStyle from "../../styles/DetailRecipe.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";

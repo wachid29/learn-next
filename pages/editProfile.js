@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import editProfileStyle from "../styles/editProfile.module.css";
+import editProfileStyle from "../styles/EditProfile.module.css";
 import { ProfileContext } from "../contex";
 import axios from "axios";
 import { useRouter } from "next/router";
