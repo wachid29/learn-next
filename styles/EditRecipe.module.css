@@ -1,0 +1,55 @@
+.page {
+    background-color: #E5E5E5;
+    height: 110vh;
+}
+
+.title {
+    justify-content: center;
+    padding-top: 25px;
+    margin-bottom: 50px;
+}
+
+.title h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: center;
+
+    color: #EFC81A;
+}
+
+.navbar {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.form {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.form textarea {
+    resize: none;
+    max-height: 100px;
+
+
+}
+
+.form label {
+    background-color: white;
+    border-radius: 15px;
+    margin-right: 5vw;
+    margin-left: 5vw;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.button label {
+    background-color: #EFC81A;
+    padding: 8px 50px 8px 50px;
+    color: #FFFFFF;
+}

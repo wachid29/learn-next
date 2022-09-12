@@ -19,8 +19,6 @@ function DetailRecipe() {
   const router = useRouter();
   const { query } = useRouter();
 
-  let formRef = useRef();
-
   React.useEffect(() => {
     if (query.id) {
       axios
@@ -123,7 +121,7 @@ function DetailRecipe() {
                   <div
                     className={detailRecipeStyle.commentForm}
                     onSubmit={(e) => e.preventDefault()}
-                    ref={{ formRef }}
+                    // ref={{ formRef }}
                   >
                     {isError ? (
                       <div className="alert alert-danger" role="alert">
