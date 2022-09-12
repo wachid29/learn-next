@@ -10,10 +10,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 // let homeStyle = {};
 
-export default function Home() {
+export default function Home(props) {
   const [nav2, setNav2] = useState();
-  const [newRecipe, setNewRecipe] = useState([]);
-  const [allRecipe, setAllRecipe] = useState([]);
   const [search, setSearch] = React.useState(null);
   const router = useRouter();
 
@@ -27,28 +25,6 @@ export default function Home() {
       router.push(`/search/${search}`);
     }
   });
-
-  React.useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API}/recipe/get5data`)
-      .then((res) => {
-        setNewRecipe(res?.data);
-      })
-      .catch((error) => {
-        console.log(error?.response?.data);
-      });
-  }, []);
-
-  React.useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API}/recipe?filter=DESC`)
-      .then((res) => {
-        setAllRecipe(res?.data?.recipe.slice(0, 6));
-      })
-      .catch((error) => {
-        console.log(error?.response?.data);
-      });
-  }, []);
 
   return (
     <>
@@ -131,7 +107,7 @@ export default function Home() {
                     swipeToSlide={true}
                     focusOnSelect={true}
                   >
-                    {newRecipe?.map((item, key) => (
+                    {props?.newRecipes.map((item, key) => (
                       <div key={key}>
                         <Link
                           href={`/detailRecipe/${encodeURIComponent(item.id)}`}
@@ -172,7 +148,7 @@ export default function Home() {
                     </a>
                   </Link>
                 </div>
-                {allRecipe?.map((item, key) => (
+                {props?.popularRecipes?.recipe?.map((item, key) => (
                   <div key={key}>
                     <Link
                       href={`/detailRecipe/${encodeURIComponent(item?.id)}`}
@@ -230,4 +206,20 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+
+  const [resNewRecipe, resPopularRecipe] = await Promise.all([
+    fetch(`${process.env.NEXT_PUBLIC_API}/recipe/get5data`),
+    fetch(`${process.env.NEXT_PUBLIC_API}/recipe?filter=DESC`),
+  ]);
+
+  const [newRecipes, popularRecipes] = await Promise.all([
+    resNewRecipe.json(),
+    resPopularRecipe.json(),
+  ]);
+  // Pass data to the page via props
+  return { props: { newRecipes, popularRecipes } };
 }
