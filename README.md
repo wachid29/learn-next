@@ -13,6 +13,7 @@
     Share Your favorite Recipe to the world.
     <br />
     <br />
+
     <a href="https://mobile-recipe-app.up.railway.app">View Demo</a>
     ·
     <a href="https://github.com/fandipras7/food_recipe_app/issues">Report Bug</a>
@@ -112,6 +113,7 @@ npm install
 Create .env file in your root project folder.
 
 ```
+
 NEXT_PUBLIC_API = https://recipemobile-production.up.railway.app
 
 ```
@@ -177,6 +179,7 @@ Contributions are what make the open source community such an amazing place to b
 ## Related Project
 
 :rocket: [`Backend Mama Recipe`](https://github.com/wachid29/recipe_mobile)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
