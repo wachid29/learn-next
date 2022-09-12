@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import detailRecipeStyle from "../../styles/detailRecipe.module.css";
+import detailRecipeStyle from "../../styles/DetailRecipe.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
@@ -18,8 +18,6 @@ function DetailRecipe() {
   const [isLoading, setIsLoading] = React.useState(false);
   const router = useRouter();
   const { query } = useRouter();
-
-  let formRef = useRef();
 
   React.useEffect(() => {
     if (query.id) {
@@ -123,7 +121,7 @@ function DetailRecipe() {
                   <div
                     className={detailRecipeStyle.commentForm}
                     onSubmit={(e) => e.preventDefault()}
-                    ref={{ formRef }}
+                    // ref={{ formRef }}
                   >
                     {isError ? (
                       <div className="alert alert-danger" role="alert">

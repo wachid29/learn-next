@@ -13,7 +13,8 @@
     Share Your favorite Recipe to the world.
     <br />
     <br />
-    <a href="https://learn-next-production.up.railway.app/">View Demo</a>
+
+    <a href="https://mobile-recipe-app.up.railway.app">View Demo</a>
     ·
     <a href="https://github.com/fandipras7/food_recipe_app/issues">Report Bug</a>
     ·
@@ -65,7 +66,6 @@ This app was built with some technologies below:
 - [Next JS](https://nextjs.org/)
 - [Axios](https://axios-http.com/)
 
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -113,6 +113,7 @@ npm install
 Create .env file in your root project folder.
 
 ```
+
 NEXT_PUBLIC_API = https://recipemobile-production.up.railway.app
 
 ```

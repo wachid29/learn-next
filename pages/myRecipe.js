@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import myRecipeStyle from "../styles/myRecipe.module.css";
+import myRecipeStyle from "../styles/MyRecipe.module.css";
 import Link from "next/link";
 import { ProfileContext } from "../contex";
 import axios from "axios";
@@ -19,6 +19,18 @@ function MyRecipe() {
         console.log("err", error);
       });
   });
+
+  const handleDeleted = (props) => {
+    console.log("item", props);
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API}/recipe/delete/:${props}`)
+      .then((res) => {
+        router.push(`/myRecipe`);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
+  };
 
   return (
     <>
@@ -79,6 +91,22 @@ function MyRecipe() {
                       <div style={{ marginLeft: "50px" }}>
                         <h6>{item?.title_recipe}</h6>
                         <p>{item?.description}</p>
+                      </div>
+                    </div>
+                    <div className="col-3 d-flex align-items-center">
+                      <div>
+                        <Link
+                          href={`/editRecipe/${encodeURIComponent(item.id)}`}
+                          passHref
+                        >
+                          <a
+                            className="d-flex align-items-center"
+                            style={{ color: "#000000" }}
+                          >
+                            <small>Edit/</small>
+                            <small>Delete</small>
+                          </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

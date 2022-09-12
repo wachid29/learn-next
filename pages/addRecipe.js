@@ -1,5 +1,5 @@
 import React from "react";
-import addRecipeStyle from "../styles/addRecipe.module.css";
+import addRecipeStyle from "../styles/AddRecipe.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import { ProfileContext } from "../contex";
