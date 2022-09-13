@@ -6,18 +6,22 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { FiAward, FiBookmark, FiUser } from "react-icons/fi";
 import { BiLike } from "react-icons/bi";
 import axios from "axios";
-import { ProfileContext } from "../contex";
+import { useRouter } from "next/router";
+// import { ProfileContext } from "../contex";
+import { useSelector, useDispatch } from "react-redux";
+import * as Type from "../redux/auth/type";
 
-axios;
 function Profile() {
   const [user, setUser] = React.useState([]);
-  const UserConsumer = React.useContext(ProfileContext);
-
+  // const UserConsumer = React.useContext(ProfileContext);
+  const router = useRouter();
+  const { profile, token } = useSelector((state) => state?.auth);
+  const dispatch = useDispatch();
   React.useEffect(() => {
     localStorage;
     axios
       .get(
-        `${process.env.NEXT_PUBLIC_API}/userdata/findbyID/?id=${UserConsumer.id}`
+        `${process.env.NEXT_PUBLIC_API}/userdata/findbyID/?id=${profile?.id}`
       )
       .then((res) => {
         setUser(res?.data?.user);
@@ -25,7 +29,15 @@ function Profile() {
       .catch((error) => {
         console.log("err", error);
       });
-  }, [user]);
+  }, [profile?.id, token]);
+
+  const handleLogOut = () => {
+    dispatch({
+      type: Type.REMOVE_AUTH,
+    });
+
+    router.push("/login");
+  };
 
   return (
     <>
@@ -156,6 +168,15 @@ function Profile() {
                     </a>
                   </Link>
                 </div>
+              </div>
+              <div className="d-flex justify-content-center">
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={handleLogOut}
+                >
+                  LOG OUT
+                </button>
               </div>
             </div>
           </div>

@@ -3,14 +3,16 @@ import detailRecipeStyle from "../../styles/DetailRecipe.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-import { ProfileContext } from "../../contex";
+// import { ProfileContext } from "../../contex";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 function DetailRecipe(props) {
   const recipe = props?.recipe?.recipe;
   const comment = props?.recipe?.comment;
   const [addComment, setAddComment] = React.useState("");
-  const UserConsumer = React.useContext(ProfileContext);
+  // const UserConsumer = React.useContext(ProfileContext);
+  const { profile } = useSelector((state) => state?.auth);
   const [isError, setIsError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
   const [isSucces, setisSucces] = React.useState(false);
@@ -24,7 +26,7 @@ function DetailRecipe(props) {
     axios
       .post(`${process.env.NEXT_PUBLIC_API}/comment/add`, {
         comment: addComment,
-        user_id: UserConsumer.id,
+        user_id: profile?.id,
         recipe_id: query.id,
       })
       .then((res) => {

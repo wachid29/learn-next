@@ -2,16 +2,17 @@ import React from "react";
 import Image from "next/image";
 import myRecipeStyle from "../styles/MyRecipe.module.css";
 import Link from "next/link";
-import { ProfileContext } from "../contex";
+// import { ProfileContext } from "../contex";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function MyRecipe() {
   const [recipe, setRecipe] = React.useState([]);
-  const UserConsumer = React.useContext(ProfileContext);
-
+  // const UserConsumer = React.useContext(ProfileContext);
+  const { profile } = useSelector((state) => state?.auth);
   React.useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_API}/recipebyuser?id=${UserConsumer.id}`)
+      .get(`${process.env.NEXT_PUBLIC_API}/recipebyuser?id=${profile?.id}`)
       .then((res) => {
         setRecipe(res?.data?.recipe);
       })
@@ -19,18 +20,6 @@ function MyRecipe() {
         console.log("err", error);
       });
   });
-
-  const handleDeleted = (props) => {
-    console.log("item", props);
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API}/recipe/delete/:${props}`)
-      .then((res) => {
-        router.push(`/myRecipe`);
-      })
-      .catch((error) => {
-        console.log("err", error);
-      });
-  };
 
   return (
     <>

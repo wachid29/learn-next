@@ -2,9 +2,10 @@ import React from "react";
 import addRecipeStyle from "../styles/AddRecipe.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { ProfileContext } from "../contex";
+// import { ProfileContext } from "../contex";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 function AddRecipe() {
   const [title_recipe, setTitle_recipe] = React.useState("");
@@ -17,7 +18,8 @@ function AddRecipe() {
   const [isSucces, setisSucces] = React.useState(false);
   const [succesMsg, setSuccesMsg] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
-  const UserConsumer = React.useContext(ProfileContext);
+  // const UserConsumer = React.useContext(ProfileContext);
+  const { profile } = useSelector((state) => state?.auth);
   const router = useRouter();
 
   const handleUpload = (e) => {
@@ -37,7 +39,7 @@ function AddRecipe() {
       bodyFormData.append("ingredients", ingredients);
       bodyFormData.append("description", description);
       bodyFormData.append("vidio_step", vidio_step);
-      bodyFormData.append("user_id", UserConsumer.id);
+      bodyFormData.append("user_id", profile?.id);
       axios({
         method: "post",
         url: `${process.env.NEXT_PUBLIC_API}/recipe/add`,

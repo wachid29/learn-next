@@ -1,21 +1,22 @@
 import React from "react";
 import Image from "next/image";
 import editProfileStyle from "../styles/EditProfile.module.css";
-import { ProfileContext } from "../contex";
+// import { ProfileContext } from "../contex";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 function EditProfile() {
   const router = useRouter();
   const [image, setImage] = React.useState({});
-  const UserConsumer = React.useContext(ProfileContext);
+  // const UserConsumer = React.useContext(ProfileContext);
   const [isError, setIsError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
   const [isSucces, setisSucces] = React.useState(false);
   const [succesMsg, setSuccesMsg] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
-
+  const { profile } = useSelector((state) => state?.auth);
   const handleUpload = (e) => {
     let uploadedImage = e.target.files[0];
     if (uploadedImage) {
@@ -28,7 +29,7 @@ function EditProfile() {
       console.log("error here");
     } else {
       let bodyFormData = new FormData();
-      bodyFormData.append("email", UserConsumer.email);
+      bodyFormData.append("email", profile?.email);
       bodyFormData.append("profile", image);
       axios({
         method: "patch",

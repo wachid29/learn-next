@@ -6,6 +6,8 @@ import { FiUser } from "react-icons/fi";
 import { BiLockAlt } from "react-icons/bi";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import * as Type from "../redux/auth/type";
 function Login() {
   const router = useRouter();
   const [email, setEmail] = React.useState("");
@@ -13,7 +15,7 @@ function Login() {
   const [isError, setIsError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
-
+  const dispatch = useDispatch();
   const handlelogin = () => {
     setIsLoading(true);
     axios
@@ -23,14 +25,22 @@ function Login() {
       })
       .then((res) => {
         setIsError(false);
-        localStorage.setItem("token", res?.data?.token);
-        localStorage.setItem("user", JSON.stringify(res?.data?.user));
+        // localStorage.setItem("token", res?.data?.token);
+        // localStorage.setItem("user", JSON.stringify(res?.data?.user));
+        dispatch({
+          type: Type.SET_AUTH,
+          payload: {
+            token: res?.data?.token,
+            user: res?.data?.user,
+          },
+        });
         router.push("/");
       })
       .catch((error) => {
         setIsLoading(false);
         setIsError(true);
         setErrorMsg(error?.response?.data);
+        console.log(error);
       });
   };
 
