@@ -86,13 +86,13 @@ If you want to run this project locally, I recommend you to configure the [back-
 - Clone the repo
 
 ```
-git clone https://github.com/wachid29/learn-next.git
+git clone https://github.com/wachid29/mobile-recipe-app.git
 ```
 
 - Go To Folder Repo
 
 ```
-cd learn-next
+cd mobile-recipe-app
 ```
 
 - Install Module
@@ -177,7 +177,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Related Project
 
-:rocket: [`Backend Mama Recipe`](https://github.com/wachid29/recipe_mobile)
+:rocket: [`Backend Recipe Mobile`](https://github.com/wachid29/recipe_mobile)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
