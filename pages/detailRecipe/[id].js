@@ -6,9 +6,9 @@ import axios from "axios";
 import { ProfileContext } from "../../contex";
 import { useRouter } from "next/router";
 
-function DetailRecipe() {
-  const [detailRecipe, setdetailRecipe] = React.useState([]);
-  const [comment, setcomment] = React.useState([]);
+function DetailRecipe(props) {
+  const recipe = props?.recipe?.recipe;
+  const comment = props?.recipe?.comment;
   const [addComment, setAddComment] = React.useState("");
   const UserConsumer = React.useContext(ProfileContext);
   const [isError, setIsError] = React.useState(false);
@@ -18,17 +18,6 @@ function DetailRecipe() {
   const [isLoading, setIsLoading] = React.useState(false);
   const router = useRouter();
   const { query } = useRouter();
-
-  React.useEffect(() => {
-    if (query.id) {
-      axios
-        .get(`${process.env.NEXT_PUBLIC_API}/commentbyrecipe?id=${query.id}`)
-        .then((res) => {
-          setdetailRecipe(res.data.recipe);
-          setcomment(res.data.comment);
-        });
-    }
-  }, [query]);
 
   const handleComment = () => {
     setIsLoading(true);
@@ -56,7 +45,7 @@ function DetailRecipe() {
   return (
     <>
       <div className={detailRecipeStyle.page}>
-        {detailRecipe?.map((item, index) => (
+        {recipe?.map((item, index) => (
           <div key={index}>
             <div
               className={`${detailRecipeStyle.detaileUpper} d-flex justify-content-center`}
@@ -182,6 +171,34 @@ function DetailRecipe() {
       </div>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  const dataRecipe = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/recipe?filter=ASC`
+  ).then((response) => response.json());
+  return {
+    paths: dataRecipe?.recipe?.map((item) => ({
+      params: { id: item?.id?.toString() },
+    })),
+    fallback: false, // can also be true or 'blocking'
+    // revalidate: 60 * 60, //In second
+  };
+  // revalidate: 10, //In second
+}
+
+// `getStaticPaths` requires using `getStaticProps`
+export async function getStaticProps(context) {
+  const { id } = context.params;
+  const recipe = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/commentbyrecipe?id=${id}`
+  ).then((response) => response.json());
+
+  return {
+    // Passed to the page component as props
+    props: { recipe: recipe },
+    revalidate: 60 * 60, //In second
+  };
 }
 
 export default DetailRecipe;
