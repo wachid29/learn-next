@@ -13,7 +13,6 @@
     Share Your favorite Recipe to the world.
     <br />
     <br />
-
     <a href="https://mobile-recipe-app.up.railway.app/">View Demo</a>
     ·
     <a href="https://github.com/wachid29/mobile-recipe-app/issues">Report Bug</a>
