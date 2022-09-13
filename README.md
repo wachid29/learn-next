@@ -14,11 +14,11 @@
     <br />
     <br />
 
-    <a href="https://mobile-recipe-app.up.railway.app">View Demo</a>
+    <a href="https://mobile-recipe-app.up.railway.app/">View Demo</a>
     ·
-    <a href="https://github.com/fandipras7/food_recipe_app/issues">Report Bug</a>
+    <a href="https://github.com/wachid29/mobile-recipe-app/issues">Report Bug</a>
     ·
-    <a href="https://github.com/fandipras7/food_recipe_app/issues">Request Feature</a>
+    <a href="https://github.com/wachid29/mobile-recipe-app/issues">Request Feature</a>
   </p>
 </div>
 
