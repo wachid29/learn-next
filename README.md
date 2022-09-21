@@ -3,22 +3,21 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/wachid29/learn-next">
+  <a href="https://github.com/wachid29/mama-recipe-mobile-app">
     <img src="https://res.cloudinary.com/dbpfwb5ok/image/upload/v1659148545/portofolio/recipe/2_kpnvj7.png" alt="Logo" width="150px">
   </a>
 
-  <h3 align="center">Mobile Recipe</h3>
+  <h3 align="center">Mama Recipe Mobile</h3>
 
   <p align="center">
     Share Your favorite Recipe to the world.
     <br />
     <br />
-
-    <a href="https://mobile-recipe-app.up.railway.app">View Demo</a>
+    <a href="https://mobile-recipe-app.up.railway.app/">View Demo</a>
     ·
-    <a href="https://github.com/fandipras7/food_recipe_app/issues">Report Bug</a>
+    <a href="https://github.com/wachid29/mama-recipe-mobile-app/issues">Report Bug</a>
     ·
-    <a href="https://github.com/fandipras7/food_recipe_app/issues">Request Feature</a>
+    <a href="https://github.com/wachid29/mama-recipe-mobile-app/issues">Request Feature</a>
   </p>
 </div>
 
@@ -87,13 +86,13 @@ If you want to run this project locally, I recommend you to configure the [back-
 - Clone the repo
 
 ```
-git clone https://github.com/wachid29/learn-next.git
+git clone https://github.com/wachid29/mama-recipe-mobile-app.git
 ```
 
 - Go To Folder Repo
 
 ```
-cd learn-next
+cd mama-recipe-mobile-app
 ```
 
 - Install Module
@@ -178,7 +177,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## Related Project
 
-:rocket: [`Backend Mama Recipe`](https://github.com/wachid29/recipe_mobile)
+:rocket: [`Backend Recipe Mobile`](https://github.com/wachid29/recipe_mobile)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

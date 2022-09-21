@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import EditRecipeStyle from "../../styles/EditRecipe.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { ProfileContext } from "../../contex";
+// import { ProfileContext } from "../../contex";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 function EditRecipe() {
   const [title_recipe, setTitle_recipe] = React.useState("");
@@ -16,7 +17,8 @@ function EditRecipe() {
   const [isSucces, setisSucces] = React.useState(false);
   const [succesMsg, setSuccesMsg] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
-  const UserConsumer = React.useContext(ProfileContext);
+  // const UserConsumer = React.useContext(ProfileContext);
+  const { profile } = useSelector((state) => state?.auth);
   const router = useRouter();
   const [recipe, setRecipe] = React.useState([]);
   const { query } = useRouter();
@@ -31,7 +33,7 @@ function EditRecipe() {
           ingredients: ingredients,
           description: description,
           vidio_step: vidio_step,
-          user_id: UserConsumer.id,
+          user_id: profile?.id,
           id: query.id,
         })
         .then((res) => {
