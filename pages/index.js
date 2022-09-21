@@ -35,7 +35,7 @@ export default function Home(props) {
             <div>
               <nav className="navbar fixed-bottom bg-light">
                 <div className={`${homeStyle.navbar} container-fluid `}>
-                  <Link href="/home" passHref>
+                  <Link href="/" passHref>
                     <a>
                       <Image
                         src="/images/homebutton.png"
