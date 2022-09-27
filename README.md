@@ -126,24 +126,24 @@ NEXT_PUBLIC_API = https://recipemobile-production.up.railway.app
 <table>
  
   <tr>
-    <td><image src="" alt="login" width=100%></td>
-    <td><image src="" alt="register" width=100%/></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242324/profile-user/u5kvhshnrwgpwkyqsyps.png" alt="login" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242458/profile-user/vilazmdgn6lrig9krdxd.png" alt="register" width=100%/></td>
   </tr>
    <tr>
     <td>Login Page</td>
     <td>Register Page</td>
   </tr>
   <tr>
-    <td><image src="" alt="home" width=100%></td>
-    <td><image src="" alt="profile" width=100%/></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242196/profile-user/ru9uognhacfuciyzdui1.png" alt="home" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242472/profile-user/qwigxfujkph7im3iwrgs.png" alt="search" width=100%/></td>
   </tr>
   <tr>
     <td>Home</td>
-    <td>Profile</td>
+    <td>Search</td>
   </tr>
     <tr>
-    <td><image src="" alt="add" width=100%></td>
-    <td><image src="" alt="edit" width=100%/></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242131/profile-user/nmcxtlnt8ysvctmzqxqk.png" alt="add" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242162/profile-user/dghg2jbm7lz78jd8nk3c.png" alt="edit" width=100%/></td>
   </tr>
   <tr>
     <td>Add Recipe</td>
@@ -151,12 +151,29 @@ NEXT_PUBLIC_API = https://recipemobile-production.up.railway.app
   </tr>
   </tr>
     <tr>
-    <td><image src="" alt="add" width=100%></td>
-    <td><image src="" alt="edit" width=100%/></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242151/profile-user/pclzbjbj7nvizqmnc4il.png" alt="detail recipe" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242419/profile-user/sin6ox4uyusbzc4wytii.png" alt="popular menu" width=100%/></td>
   </tr>
   <tr>
     <td>Detail Recipe</td>
-    <td>Detail Video</td>
+    <td>Popular Menu</td>
+  </tr>
+  </tr>
+    <tr>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242434/profile-user/ormkbnpksnpwr7r1idfv.png" alt="profile" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242444/profile-user/wlar0fvbmc37r8d0sukn.png" alt="edit profile" width=100%/></td>
+  </tr>
+  <tr>
+    <td>Profile</td>
+    <td>Edit Profile</td>
+  </tr>
+    </tr>
+    <tr>
+    <td><image src="https://res.cloudinary.com/dhdngrjzr/image/upload/v1664242397/profile-user/i0zhsmojaqwsglfanlvl.png" alt="my recipe" width=100%></td>
+  </tr>
+  <tr>
+    <td>My Recipe</td>
+    
   </tr>
 </table>
       
