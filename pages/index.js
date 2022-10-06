@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FiSearch } from "react-icons/fi";
 import Slider from "react-slick";
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
