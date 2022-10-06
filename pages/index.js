@@ -106,7 +106,7 @@ export default function Home(props) {
                     swipeToSlide={true}
                     focusOnSelect={true}
                   >
-                    {props?.newRecipes.map((item, key) => (
+                    {props?.newRecipes.map((itemc) => (
                       <div key={key}>
                         <Link
                           href={`/detailRecipe/${encodeURIComponent(item.id)}`}
