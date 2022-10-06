@@ -8,7 +8,6 @@ import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
-// let homeStyle = {};
 
 export default function Home(props) {
   const [nav2, setNav2] = useState();
@@ -35,7 +34,7 @@ export default function Home(props) {
             <div>
               <nav className="navbar fixed-bottom bg-light">
                 <div className={`${homeStyle.navbar} container-fluid `}>
-                  <Link href="/home" passHref>
+                  <Link href="/" passHref>
                     <a>
                       <Image
                         src="/images/homebutton.png"
